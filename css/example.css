@@ -6,28 +6,17 @@
     @author Stewart Anderson <git@stewart-anderson.co.uk>
 */
 
-/* -------------------------------------------------------------------- RESET */
-html,body,div,span,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,big,code,em,img,q,small,strong,b,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table{
-    margin:0;
-    padding:0;
-    font-size:100%;
-    font:inherit;
-}
-ol,ul,li{
-    list-style:none;
-}
-table {
-    border:0;
-    border-collapse:collapse;
-    border-spacing:0;
-}
-a{
-    outline:0;
-}
-/* --------------------------------------------------------------------- MAIN */
 
+body{
+    margin: 0;
+    font: normal 1em/1.5em Helvetica, Arial, 'San Serif', Serif;
+    color: #696969;
+}
+div{
+    margin: 20px auto;
+    width: 960px;
+}
 fieldset{
-    margin: auto;
-    width: 80%;
+    padding: 0;
+    border: 0;
 }
-

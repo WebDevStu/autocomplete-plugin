@@ -9,12 +9,22 @@
         <link rel="stylesheet" href="css/autocomplete.css">
         
         <!-- required scripts (jQuery and autocomplete) -->
-         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="js/autocomplete.js"></script>
     </head>
     <body>
         <div>
             <fieldset>
+                <h1>Autocomplete jQuery Plugin</h1>
+                <p>
+                    Original element is re-written into input, the user start 
+                    input to display matching results. A second hidden input is 
+                    also created with the same name and id as the original 
+                    select, the value of which is populated when the users 
+                    selects an autocomplete result, this ensures your form data 
+                    being passed is always correct.
+                </p>
+                <label for="select">Country: </label>
                 <select id="select">
                     <option value="--" selected="selected">Select Country</option> 
                     <option value="United States">United States</option> 
