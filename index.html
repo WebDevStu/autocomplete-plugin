@@ -11,6 +11,7 @@
         <!-- required scripts (jQuery and autocomplete) -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script src="js/autocomplete.js"></script>
+        
     </head>
     <body>
         <div>
@@ -269,7 +270,12 @@
                     <option value="Zambia">Zambia</option> 
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
+                
             </fieldset>
         </div>
+        <script>
+            $("#select").autocomplete();
+            //  @TODO add option
+        </script>
     </body>
 </html>
