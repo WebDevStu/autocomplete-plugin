@@ -1,7 +1,11 @@
 
 /**
  *  Autocomplete Plugin
- * 
+ *  
+ *  @overview jQuery Plugin that is bound to a select element, takes the values 
+ *  of each of it's children to generate an autocomplete style helper for users
+ *  @author Stewart Anderson <git@stewart-anderson.co.uk>
+ *  @copyright Stewart Anderson
  */
 
 
@@ -12,7 +16,8 @@
         //  cache some variables
 
         var data = [],
-            matched = [];
+            matched = [],
+            matchValues;
 
         //  create the initial array of objects - containing all values and text 
         //  of each child option of the select, we'll use this to scan for 
@@ -38,45 +43,15 @@
             id: 'AC_' + this.attr('id'),
             type: 'text'
         }).appendTo(this.parent());
-
-        //  now bind any key events on the new input
-
-        $("#AC_" + this.attr('id')).keyup(function (event) {
-            var value = $(this).val();
-            switch (event.keyCode) {
-
-            case 9:     //  tab key
-                //  hide the ac results
-                break;
-
-            case 13:    //  enter key
-                //  hide the ac results
-                break;
-
-            case 38:    //  up arrow key
-                //  up a record
-                break;
-
-            case 40:    //  down arrow key
-                //  down a record
-                break;
-
-            //  if none of the targeted keys are hit, we're safe to assume the 
-            //  user is waiting for a list of matches to be returned
-
-            default:
-                //  strip out any funky chars
-
-                value = value.replace(/[^\w\s]/gi, '');
-                $(this).val(value);
-
-                //  call autocomplete function
-
-                break;
-            }
-        });
-
-        function matchValues(input) {
+        
+        /**
+         *  Macth Values function called each time the user keys down within the 
+         *  target input, matches their input against the original options text
+         *  @method matchValues
+         *  @param input {string} - users typed input
+         *  @returns {array} an array of matched values to be pushed to the view
+         */
+        matchValues = function (input) {
 
             var dataLength = data.length,
                 match,
@@ -152,7 +127,46 @@
             return matched;
         }
 
+        //  now bind any key events on the new input
+
+        $("#AC_" + this.attr('id')).keyup(function (event) {
+            var value = $(this).val();
+            switch (event.keyCode) {
+
+            case 9:     //  tab key
+                //  hide the ac results
+                break;
+
+            case 13:    //  enter key
+                //  hide the ac results
+                break;
+
+            case 38:    //  up arrow key
+                //  up a record
+                break;
+
+            case 40:    //  down arrow key
+                //  down a record
+                break;
+
+            //  if none of the targeted keys are hit, we're safe to assume the 
+            //  user is waiting for a list of matches to be returned
+
+            default:
+                //  strip out any funky chars
+
+                value = value.replace(/[^\w\s]/gi, '');
+                $(this).val(value);
+
+                //  call autocomplete function
+                matchValues(value);
+
+                break;
+            }
+        });
+
+
         //  remove the first instance of the select now we have all the info
-        return this.remove();
+        this.remove();
     };
 }(jQuery));
